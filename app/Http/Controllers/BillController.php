@@ -90,7 +90,7 @@ class BillController extends Controller
             $customer = Customer::findOrFail($input['customer_id']);
             $admin = Admin::findOrFail($input['admin_id']);
 
-            $bill = new Bill();
+            $bill = Bill::findOrFail($id);
             $bill->transaction_date = $input['transaction_date'];
             $bill->total = $input['total'];
 
