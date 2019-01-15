@@ -18,11 +18,13 @@ class CreateBillsTable extends Migration
             $table->date('transaction_date');
             $table->integer('customer_id')->unsigned();
             $table->integer('product_id')->unsigned();
+            $table->integer('admin_id')->unsigned();
             $table->integer('total');
             $table->timestamps();
 
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
         });
     }
 
