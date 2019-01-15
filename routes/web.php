@@ -32,7 +32,6 @@ $router->group(['prefix' => 'api'], function () use ($router) {
         $router->patch('/{id}', 'ProductController@update');
         $router->delete('/{id}', 'ProductController@destroy');
     });
-
     $router->group(['prefix' => 'admins'], function () use ($router) {
         $router->get('/', 'AdminController@index');
         $router->post('/', 'AdminController@store');
@@ -40,5 +39,13 @@ $router->group(['prefix' => 'api'], function () use ($router) {
         $router->put('/{id}', 'AdminController@update');
         $router->patch('/{id}', 'AdminController@update');
         $router->delete('/{id}', 'AdminController@destroy');
+    });
+    $router->group(['prefix' => 'bills'], function () use ($router) {
+        $router->get('/', 'BillController@index');
+        $router->post('/', 'BillController@store');
+        $router->get('/{id}', 'BillController@show');
+        $router->put('/{id}', 'BillController@update');
+        $router->patch('/{id}', 'BillController@update');
+        $router->delete('/{id}', 'BillController@destroy');
     });
 });
